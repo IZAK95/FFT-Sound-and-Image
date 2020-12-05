@@ -399,7 +399,7 @@
      <number>100000</number>
     </property>
     <property name="singleStep">
-     <number>1000</number>
+     <number>100</number>
     </property>
    </widget>
    <widget class="QPushButton" name="Stop">

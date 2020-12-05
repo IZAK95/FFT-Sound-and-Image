@@ -407,7 +407,6 @@ void MainWindow::on_fft_clicked() {
 
 void MainWindow::on_play_sound_clicked()
 {
-   // for (auto i : this->audio_amplitude) qDebug() << i;
     this->play_audio_lr(this->audio_amplitude, this->audio_file->fileFormat());
 
 }
@@ -415,11 +414,9 @@ void MainWindow::on_play_sound_clicked()
 void MainWindow::on_play_sound_filtered_clicked()
 {
     this->play_audio_lr(this->audio_fft_amplitude, this->audio_file->fileFormat());
-    this->player.stop();
 }
 
 void MainWindow::on_Stop_clicked()
 {
-    this->player.stop();
     this->player.pause();
 }
