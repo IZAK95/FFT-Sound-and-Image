@@ -129,7 +129,7 @@
    <widget class="QPushButton" name="load_image">
     <property name="geometry">
      <rect>
-      <x>800</x>
+      <x>940</x>
       <y>20</y>
       <width>116</width>
       <height>33</height>
@@ -384,6 +384,35 @@
     </property>
     <property name="text">
      <string>FFT Phase Filtered</string>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="freqSelect">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>70</y>
+      <width>111</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="maximum">
+     <number>100000</number>
+    </property>
+    <property name="singleStep">
+     <number>1000</number>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="Stop">
+    <property name="geometry">
+     <rect>
+      <x>710</x>
+      <y>30</y>
+      <width>116</width>
+      <height>33</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Stop</string>
     </property>
    </widget>
   </widget>

@@ -223,8 +223,9 @@ void MainWindow::on_load_audio_clicked() {
 
 void MainWindow::on_filter_clicked()
 {
+  int frequency = ui->freqSelect->value();
   if (this->fft_result.size() == 0) return;
-  this->fft_result_filtered = this->lowpass_filter_fft(40000, this->fft_result);
+  this->fft_result_filtered = this->lowpass_filter_fft(frequency, this->fft_result);
   audio_fft_amplitude.clear();
   audio_fft_angle.clear();
   for (auto r : this->fft_result_filtered) {
@@ -415,4 +416,10 @@ void MainWindow::on_play_sound_filtered_clicked()
 {
     this->play_audio_lr(this->audio_fft_amplitude, this->audio_file->fileFormat());
     this->player.stop();
+}
+
+void MainWindow::on_Stop_clicked()
+{
+    this->player.stop();
+    this->player.pause();
 }

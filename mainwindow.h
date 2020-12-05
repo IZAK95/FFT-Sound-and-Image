@@ -43,6 +43,8 @@ private slots:
 
     void on_play_sound_filtered_clicked();
 
+    void on_Stop_clicked();
+
 private:
     vector<Complex> fft(const QVector<double> & data);
     vector<Complex> ifft(const vector<Complex> & data);
