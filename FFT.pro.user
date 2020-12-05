@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.13.2, 2020-12-05T17:20:16. -->
+<!-- Written by QtCreator 4.13.2, 2020-12-05T17:50:26. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -325,8 +325,9 @@
     <valuelist type="QVariantList" key="CustomOutputParsers"/>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:C:/Users/izaka/OneDrive - NORTH-WEST UNIVERSITY/NWU2020/Semester 2/EERI325/Qt/FFT/FFT.pro</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/izaka/OneDrive - NORTH-WEST UNIVERSITY/NWU2020/Semester 2/EERI325/Qt/FFT/FFT.pro</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">FFT2</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:C:/Users/izaka/OneDrive - NORTH-WEST UNIVERSITY/NWU2020/Semester 2/EERI325/Qt/FFT-Sound-and-Image/FFT.pro</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/izaka/OneDrive - NORTH-WEST UNIVERSITY/NWU2020/Semester 2/EERI325/Qt/FFT-Sound-and-Image/FFT.pro</value>
     <value type="QString" key="RunConfiguration.Arguments"></value>
     <value type="bool" key="RunConfiguration.Arguments.multi">false</value>
     <value type="QString" key="RunConfiguration.OverrideDebuggerStartup"></value>

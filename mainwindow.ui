@@ -129,7 +129,7 @@
    <widget class="QPushButton" name="load_image">
     <property name="geometry">
      <rect>
-      <x>800</x>
+      <x>960</x>
       <y>20</y>
       <width>116</width>
       <height>33</height>
@@ -235,7 +235,7 @@
      <rect>
       <x>160</x>
       <y>90</y>
-      <width>101</width>
+      <width>141</width>
       <height>21</height>
      </rect>
     </property>
@@ -248,7 +248,7 @@
      <rect>
       <x>540</x>
       <y>90</y>
-      <width>131</width>
+      <width>201</width>
       <height>16</height>
      </rect>
     </property>
@@ -287,7 +287,7 @@
      <rect>
       <x>180</x>
       <y>410</y>
-      <width>71</width>
+      <width>111</width>
       <height>16</height>
      </rect>
     </property>
@@ -298,9 +298,9 @@
    <widget class="QLabel" name="label_6">
     <property name="geometry">
      <rect>
-      <x>560</x>
+      <x>550</x>
       <y>410</y>
-      <width>71</width>
+      <width>141</width>
       <height>16</height>
      </rect>
     </property>
@@ -324,7 +324,7 @@
    <widget class="QLabel" name="label_8">
     <property name="geometry">
      <rect>
-      <x>1060</x>
+      <x>1080</x>
       <y>90</y>
       <width>131</width>
       <height>16</height>
@@ -365,7 +365,7 @@
      <rect>
       <x>840</x>
       <y>540</y>
-      <width>81</width>
+      <width>121</width>
       <height>16</height>
      </rect>
     </property>
@@ -384,6 +384,45 @@
     </property>
     <property name="text">
      <string>FFT Phase Filtered</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="Stop">
+    <property name="geometry">
+     <rect>
+      <x>720</x>
+      <y>30</y>
+      <width>116</width>
+      <height>33</height>
+     </rect>
+    </property>
+    <property name="contextMenuPolicy">
+     <enum>Qt::NoContextMenu</enum>
+    </property>
+    <property name="text">
+     <string>Stop</string>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="FrequencySelect">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>70</y>
+      <width>101</width>
+      <height>21</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_13">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>70</y>
+      <width>55</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Hz</string>
     </property>
    </widget>
   </widget>
