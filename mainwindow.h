@@ -14,7 +14,6 @@
 #include <QMediaPlayer>
 #include <QAudioOutput>
 #include "wavfile.h"
-
 using std::vector;
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -43,10 +42,6 @@ private slots:
     void on_play_sound_clicked();
 
     void on_play_sound_filtered_clicked();
-
-    void on_Stop_clicked();
-
-    void on_spinBox_valueChanged(int arg1);
 
 private:
     vector<Complex> fft(const QVector<double> & data);
@@ -85,7 +80,5 @@ private:
     vector<Complex> image_result_fft;
     vector<Complex> image_result_fft_filtered;
     QMediaPlayer player;
-
-
 };
 #endif // MAINWINDOW_H

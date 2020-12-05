@@ -119,7 +119,7 @@ QVector<double> MainWindow::freq_domain(const QVector<double> & data,
     }
     return items;
 }
-
+//Play audion function
 void MainWindow::play_audio_lr(const QVector<double> & data, const QAudioFormat & format) {
   this->player.stop();
   audio_file->seek(0);
@@ -223,15 +223,8 @@ void MainWindow::on_load_audio_clicked() {
 
 void MainWindow::on_filter_clicked()
 {
-
-  int frequency = ui->FrequencySelect->value();
-  qDebug("Selected Frequency is %d",frequency);
   if (this->fft_result.size() == 0) return;
-<<<<<<< HEAD
-  this->fft_result_filtered = this->lowpass_filter_fft(400, this->fft_result);
-=======
-  this->fft_result_filtered = this->lowpass_filter_fft(4000, this->fft_result);
->>>>>>> parent of 7f4df4a... Minor changes to UI
+  this->fft_result_filtered = this->lowpass_filter_fft(40000, this->fft_result);
   audio_fft_amplitude.clear();
   audio_fft_angle.clear();
   for (auto r : this->fft_result_filtered) {
@@ -415,20 +408,11 @@ void MainWindow::on_play_sound_clicked()
 {
    // for (auto i : this->audio_amplitude) qDebug() << i;
     this->play_audio_lr(this->audio_amplitude, this->audio_file->fileFormat());
+
 }
 
 void MainWindow::on_play_sound_filtered_clicked()
 {
     this->play_audio_lr(this->audio_fft_amplitude, this->audio_file->fileFormat());
-<<<<<<< HEAD
-
-=======
->>>>>>> parent of 7f4df4a... Minor changes to UI
+    this->player.stop();
 }
-
-void MainWindow::on_Stop_clicked()
-{
-    this->player.pause();
-}
-
-
