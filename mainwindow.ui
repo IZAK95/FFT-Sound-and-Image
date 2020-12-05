@@ -360,6 +360,7 @@
      <string>FFT Amplitude Filtered</string>
     </property>
    </widget>
+<<<<<<< HEAD
    <widget class="QLabel" name="label_11">
     <property name="geometry">
      <rect>
@@ -425,6 +426,8 @@
      <string>Hz</string>
     </property>
    </widget>
+=======
+>>>>>>> parent of 7f4df4a... Minor changes to UI
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
