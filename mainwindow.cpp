@@ -259,8 +259,33 @@ vector<Complex> MainWindow::highpass_filter_fft(const double & cover, const vect
     return result;
 }
 
+vector<Complex> MainWindow::lowpass_filter_fft_image(const double & cover, const vector<Complex> & fft) {
+    vector<Complex> result;
+    QVector2D mid(ui->image->width() / 2., ui->image->height() / 2.);
+    for (auto y = 0; y < ui->image->height(); ++y) {
+      for (auto x = 0; x < ui->image->width(); ++x) {
+          QVector2D current(shift(x, ui->image->width()),
+                            shift(y, ui->image->height()));
+          Complex c;
+          c.i = 0;
+          c.r = 0;
+          if (mid.distanceToPoint(current) <= cover) {
+              c.i = fft[x + y * ui->image->height()].i;
+              c.r = fft[x + y * ui->image->height()].r;
+          }
+          result.push_back(c);
+      }
+    }
+
+    return result;
+}
+
+
+
+
 void MainWindow::on_load_image_clicked()
 {
+
    int imageFrequency = ui->imageFilter->value();
    QString image_filename = QFileDialog::getOpenFileName(this,
       tr("Open Image"), "/home/", tr("Image Files (*.bmp *.jpg *.png)"));
@@ -287,11 +312,29 @@ void MainWindow::on_load_image_clicked()
    this->image_result_fft = this->fft(image_raw);
    this->render_amplitude(this->image_result_fft);
    this->render_phase(this->image_result_fft);
-   auto filtered_result = this->highpass_filter_fft(imageFrequency, this->image_result_fft);
-   this->render_amplitude_filtered(filtered_result);
-   this->render_phase_filtered(filtered_result);
-   auto ifft_filtered_result = this->ifft(filtered_result);
-   this->render_filtered(ifft_filtered_result);
+
+    if (choice == 1)
+        {
+            qDebug()<<"Choice is 1";
+            auto filtered_result = this->highpass_filter_fft(imageFrequency, this->image_result_fft);
+            this->render_amplitude_filtered(filtered_result);
+            this->render_phase_filtered(filtered_result);
+            auto ifft_filtered_result = this->ifft(filtered_result);
+            this->render_filtered(ifft_filtered_result);
+
+        }
+   else
+        {
+            qDebug()<<"Choice is 0";
+            auto filtered_result = this->lowpass_filter_fft_image(imageFrequency, this->image_result_fft);
+            this->render_amplitude_filtered(filtered_result);
+            this->render_phase_filtered(filtered_result);
+            auto ifft_filtered_result = this->ifft(filtered_result);
+            this->render_filtered(ifft_filtered_result);
+        }
+
+
+
 }
 
 uint32_t MainWindow::shift(const uint32_t & x, const uint32_t & max_val) {
@@ -421,4 +464,16 @@ void MainWindow::on_play_sound_filtered_clicked()
 void MainWindow::on_Stop_clicked()
 {
     this->player.pause();
+}
+
+
+
+void MainWindow::on_HighPass_clicked()
+{
+    choice = 1;
+}
+
+void MainWindow::on_LowPass_clicked()
+{
+    choice = 0;
 }

@@ -401,6 +401,9 @@
     <property name="singleStep">
      <number>1000</number>
     </property>
+    <property name="value">
+     <number>4000</number>
+    </property>
    </widget>
    <widget class="QPushButton" name="Stop">
     <property name="geometry">
@@ -437,6 +440,9 @@
       <height>21</height>
      </rect>
     </property>
+    <property name="value">
+     <number>20</number>
+    </property>
    </widget>
    <widget class="QLabel" name="label_14">
     <property name="geometry">
@@ -449,6 +455,35 @@
     </property>
     <property name="text">
      <string>Image Filter Frequency</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="HighPass">
+    <property name="geometry">
+     <rect>
+      <x>1110</x>
+      <y>20</y>
+      <width>82</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>High Pass</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="LowPass">
+    <property name="geometry">
+     <rect>
+      <x>1110</x>
+      <y>40</y>
+      <width>82</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Low Pass</string>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
     </property>
    </widget>
   </widget>

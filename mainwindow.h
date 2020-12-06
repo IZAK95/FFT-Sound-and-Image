@@ -45,6 +45,10 @@ private slots:
 
     void on_Stop_clicked();
 
+    void on_HighPass_clicked();
+
+    void on_LowPass_clicked();
+
 private:
     vector<Complex> fft(const QVector<double> & data);
     vector<Complex> ifft(const vector<Complex> & data);
@@ -66,6 +70,7 @@ private:
     QImage config_phase(const vector<Complex> & data);
     vector<Complex> lowpass_filter_fft(const double & freq, const vector<Complex> & fft);
     vector<Complex> highpass_filter_fft(const double & cover, const vector<Complex> & fft);
+    vector<Complex> lowpass_filter_fft_image(const double & cover, const vector<Complex> & fft);
     uint32_t shift(const uint32_t & x, const uint32_t & max_val);
     Ui::MainWindow *ui;
     QString audio_filename;
@@ -82,5 +87,6 @@ private:
     vector<Complex> image_result_fft;
     vector<Complex> image_result_fft_filtered;
     QMediaPlayer player;
+    bool choice = 0;
 };
 #endif // MAINWINDOW_H
