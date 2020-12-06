@@ -45,7 +45,7 @@ vector<Complex> MainWindow::ifft(const vector<Complex> & data) {
     fftw_free(out);
     return result;
 }
-//FFT Function, already used when loading a file.
+//FFT Function already used when loading a file.
 vector<Complex> MainWindow::fft(const QVector<double> & data) {
   vector<Complex> result;
   fftw_complex *in, *out;
@@ -106,7 +106,7 @@ QVector<double> MainWindow::freq_domain(const QVector<double> & data,
 
     fmin = audio_file->fileFormat().sampleRate();
     fmax = -audio_file->fileFormat().sampleRate();
-    qDebug() << "T="<< data.size() / (audio_file->fileFormat().sampleRate() * 1.);
+    qDebug() << "Time (s) ="<< data.size() / (audio_file->fileFormat().sampleRate() * 1.);
 
     for (auto i = 0; i < data.size(); i++) {
       if (data[i] < vmin) vmin = data[i];
@@ -119,11 +119,12 @@ QVector<double> MainWindow::freq_domain(const QVector<double> & data,
     }
     return items;
 }
-//Play audion function
+//Play audio function
 void MainWindow::play_audio_lr(const QVector<double> & data, const QAudioFormat & format) {
   this->player.stop();
   audio_file->seek(0);
   QByteArray buffer = audio_file->readLine(audio_file->headerLength());
+  qDebug()<<"Buffer"<<buffer;
   QDataStream out(&buffer, QIODevice::WriteOnly | QIODevice::Append);
   if (audio_file->fileFormat().byteOrder() == QAudioFormat::LittleEndian)
     out.setByteOrder(QDataStream::LittleEndian);
@@ -134,6 +135,7 @@ void MainWindow::play_audio_lr(const QVector<double> & data, const QAudioFormat 
   fw->setData(buffer);
   fw->open(QIODevice::ReadOnly);
   this->player.setMedia(QMediaContent(), fw);
+  qDebug()<<"fw "<<fw;
 }
 
 void MainWindow::plot_amplitude(const QVector<double> & data) {
@@ -259,6 +261,7 @@ vector<Complex> MainWindow::highpass_filter_fft(const double & cover, const vect
 
 void MainWindow::on_load_image_clicked()
 {
+   int imageFrequency = ui->imageFilter->value();
    QString image_filename = QFileDialog::getOpenFileName(this,
       tr("Open Image"), "/home/", tr("Image Files (*.bmp *.jpg *.png)"));
    if (image_filename == "") return;
@@ -284,7 +287,7 @@ void MainWindow::on_load_image_clicked()
    this->image_result_fft = this->fft(image_raw);
    this->render_amplitude(this->image_result_fft);
    this->render_phase(this->image_result_fft);
-   auto filtered_result = this->highpass_filter_fft(18.0, this->image_result_fft);
+   auto filtered_result = this->highpass_filter_fft(imageFrequency, this->image_result_fft);
    this->render_amplitude_filtered(filtered_result);
    this->render_phase_filtered(filtered_result);
    auto ifft_filtered_result = this->ifft(filtered_result);
@@ -408,7 +411,6 @@ void MainWindow::on_fft_clicked() {
 void MainWindow::on_play_sound_clicked()
 {
     this->play_audio_lr(this->audio_amplitude, this->audio_file->fileFormat());
-
 }
 
 void MainWindow::on_play_sound_filtered_clicked()
